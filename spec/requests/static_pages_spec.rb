@@ -1,9 +1,43 @@
 require 'spec_helper'
 
-describe "StaticPages" do
-	before {visit root_path}
-		it "should have the right content" do
-			
+describe "The StaticPages" do
+
+	describe "Home page" do
+
+		it "should have the right content" do	
+			visit root_path		
 			expect(page).to have_content('Welcome to Storyboard')
 		end
+
+		it "should have the right title" do
+			visit root_path
+			expect(page).to have_title('Storyboard | Home')
+		end
+	end
+
+	describe "Help page" do
+
+		it "should have the right content" do
+			visit "/static_pages/help"
+			expect(page).to have_content('Help')
+		end
+
+		it "should have the right title" do
+			visit "/static_pages/help"
+			expect(page).to have_title('Storyboard | Help')
+		end
+	end
+
+	describe "About page" do
+
+		it "should have the right content" do
+			visit "/static_pages/about"
+			expect(page).to have_content('About')
+		end
+
+		it "should have the right title" do
+			visit "/static_pages/about"
+			expect(page).to have_title('Storyboard | About')
+		end
+	end
 end
