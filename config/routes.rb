@@ -1,7 +1,10 @@
 Storyboard::Application.routes.draw do
   root 'static_pages#home'
-  get "static_pages/help"
-  get "static_pages/about"
+  match '/help', to: 'static_pages#help', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get' #matches /about to the about action in the static pages controller
+  #via a get request
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
