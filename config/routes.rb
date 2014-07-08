@@ -1,5 +1,6 @@
 Storyboard::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
+  resources :users
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get' #matches /about to the about action in the static pages controller
