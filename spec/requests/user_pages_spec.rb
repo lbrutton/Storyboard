@@ -1,22 +1,14 @@
 require 'spec_helper'
 
-describe "UserPages" do
-	subject { page }
+#describe "UserPages" do
+	#subject { page }
 
-	describe "profile page" do
-		let(:user){FactoryGirl.create(:user)}
-		before {visit user_path(user)}
+	#describe "profile page" do
+	#	let(:user){FactoryGirl.create(:user)}
+	#	user.save
+	#	before {visit user_path(user)}
 
-		it {should have_content(user.name)}
-		it {should have_title(user.name)}
-	end
-
-
-	describe "sign up page" do
-		before {visit signup_path}
-
-		it {should have_content('Sign up')}
-		it {should have_title('Storyboard | Sign up')}
-	end
-  
-end
+	#	it {should have_content(user.name)}
+	#	it {should have_title(user.name)}
+#	end  
+#end

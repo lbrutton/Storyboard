@@ -1,4 +1,6 @@
 Storyboard::Application.routes.draw do
+  match "auth/facebook/callback", to:"sessions#create", via: 'get'
+  match "/signout", to:"sessions#destroy", via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   resources :users
   root 'static_pages#home'
