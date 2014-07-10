@@ -1,7 +1,7 @@
 <% if signed_in? %>
 <% provide(:title, current_user.name) %>
 <h1>
-	<%= gravatar_for current_user %>
+	<%= image_tag(current_user.image) %>
 	<%= current_user.name %>
 </h1>
 <% else %>
