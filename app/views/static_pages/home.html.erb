@@ -1,9 +1,13 @@
 <% if signed_in? %>
 <% provide(:title, current_user.name) %>
-<h1>
-	<%= image_tag(current_user.image) %>
-	<%= current_user.name %>
-</h1>
+<aside class="span4">
+	<section>
+		<h1>
+			<%= image_tag(current_user.image) %>
+			<%= current_user.name %>
+		</h1>
+	</section>
+</aside>
 <% else %>
 <%= provide(:title, 'Home') %>
 <div class="center hero-unit">
