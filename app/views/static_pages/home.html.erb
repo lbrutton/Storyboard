@@ -1,13 +1,6 @@
 <% if signed_in? %>
-<% provide(:title, current_user.name) %>
-<aside class="span4">
-	<section>
-		<h1>
-			<%= image_tag(current_user.image) %>
-			<%= current_user.name %>
-		</h1>
-	</section>
-</aside>
+<% params[:id] = current_user.id %>
+<%= render 'shared/user_home' %>
 <% else %>
 <%= provide(:title, 'Home') %>
 <div class="center hero-unit">

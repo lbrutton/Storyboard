@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+<h1> <%= user.name %> </h1>
+<span>
+  <%= link_to "See stories", user_path(user) %>
+</span>
+<% end %>

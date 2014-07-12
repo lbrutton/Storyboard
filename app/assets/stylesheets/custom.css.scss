@@ -35,6 +35,17 @@ textarea {
   }
 }
 
+/*buttons*/
+
+#center-button{
+  width: 100%;
+  text-align: center;
+  align: center;
+  margin-top: 100px;
+
+}
+
+
 
 
 /*typography*/
@@ -91,6 +102,8 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
+  margin-right: 10px;
+  margin-left: 10px;
   a {
     color: $gray;
     &:hover {

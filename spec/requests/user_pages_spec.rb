@@ -6,15 +6,51 @@ describe "UserPages" do
 	subject { page }
 
 	describe "profile page" do
+
 		before do
-	  		facebook_login_setup
-	      	sign_in(@user)
-	      end
-	     it "should have the right content" do
-	     	visit user_path(@user)
-	     	expect(page).to have_content(@user.name) 
-	     	expect(page).to have_content(@user.image)
-	     	pp @user
-	     end
+		  		facebook_login_setup
+		      	sign_in(@user)
+		end
+
+		context "for the current user" do
+
+			before {visit user_path(@user)}
+			
+		     it {should have_content(@user.name)}
+		     it {should have_content(@user.image)}
+
+		     it {should have_link("Start a new story", href: new_path) }
+		     it {should have_link("Continue story", href: continue_path) }
+		     it {should have_link("See other stories", href: users_path)}
+		 end
+
+		 context "for other users" do
+
+		 	before do
+		 		create_users
+		 		visit user_path(@user2)
+		 	end
+
+		 	it {should have_content(@user2.name)}
+		 end
 	end  
+
+	describe "users page" do
+		before do
+			create_users
+			visit users_path
+		end
+
+		it "should show all users" do
+			@users.each do |user|
+				expect(page).to have_content(user.name)
+			end
+		end
+
+		it "should have the right links for each user" do
+			@users.each do |user|
+				expect(page).to have_link('See stories', href: 'user_path(user)')
+			end
+		end
+	end
 end

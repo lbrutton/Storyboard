@@ -1,0 +1,33 @@
+<% provide(:title, current_user.name) %>
+<% user = User.find(params[:id]) %>
+<% if current_user.id == user.id %>
+<aside class="span4">
+	<section>
+		<h1>
+			<%= image_tag(current_user.image) %>
+			<%= current_user.name %>
+		</h1>
+	</section>
+</aside>
+	<div id="center-button">
+		<%= link_to "Start a new story!", '#' , class:"btn btn-large btn-primary" %>
+	</div>
+	<div id="center-button">
+		<%= link_to "Continue story...", '#', class:"btn btn-large btn-primary" %>
+	</div>
+	<div id="center-button">
+		<%= link_to "See other stories", users_path , class:"btn btn-large btn-primary" %>
+	</div>
+<% else %>
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= image_tag(user.image) %>
+				<%= user.name %>
+			</h1>
+		</section>
+	</aside>
+	<div id="center-button">
+		<%= link_to "See stories", '#' , class:"btn btn-large btn-primary" %>
+	</div>
+<% end %>
