@@ -6,6 +6,8 @@ Storyboard::Application.routes.draw do
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get' #matches /about to the about action in the static pages controller
+  match 'stories/new', to: 'stories#new', via: 'get'
+  match '/stories', to: 'stories#create', via: 'post'
   #via a get request
 
   

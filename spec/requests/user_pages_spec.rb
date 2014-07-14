@@ -19,9 +19,9 @@ describe "UserPages" do
 		     it {should have_content(@user.name)}
 		     it {should have_content(@user.image)}
 
-		     it {should have_link("Start a new story", href: new_path) }
-		     it {should have_link("Continue story", href: continue_path) }
-		     it {should have_link("See other stories", href: users_path)}
+		     it {should have_link("Start a new story", href: 'stories/new') }
+		     xit {should have_link("Continue story", href: continue_path) }
+		     xit {should have_link("See other stories", href: users_path)}
 		 end
 
 		 context "for other users" do
