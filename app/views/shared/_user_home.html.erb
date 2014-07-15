@@ -10,7 +10,7 @@
 	</section>
 </aside>
 	<div id="center-button">
-		<%= link_to "Start a new story!", 'stories/new' , class:"btn btn-large btn-primary" %>
+		<%= link_to "Start a new story!", stories_new_path , class:"btn btn-large btn-primary" %>
 	</div>
 	<div id="center-button">
 		<%= link_to "Continue story...", '#', class:"btn btn-large btn-primary" %>
@@ -28,6 +28,14 @@
 		</section>
 	</aside>
 	<div id="center-button">
-		<%= link_to "See stories", '#' , class:"btn btn-large btn-primary" %>
+		<h1> Stories </h1>
+		<% @stories = user.story.all %>
+		<% @stories.each do |story| %>
+		<ul>
+			<li> <%= story.title %> 
+			</br> <%= link_to('Contribute', story) %>
+			</li>
+		</ul>
+		<% end %>
 	</div>
 <% end %>

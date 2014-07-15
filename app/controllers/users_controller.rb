@@ -10,4 +10,8 @@ class UsersController < ApplicationController
   	@users = User.all
   end
 
+  def storyindex
+  	@user = User.find_by(params[:id])
+  end
+
 end

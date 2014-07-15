@@ -8,6 +8,8 @@ Storyboard::Application.routes.draw do
   match '/about', to: 'static_pages#about', via: 'get' #matches /about to the about action in the static pages controller
   match 'stories/new', to: 'stories#new', via: 'get'
   match '/stories', to: 'stories#create', via: 'post'
+  match '/storyindex', to: 'users#storyindex', via: 'get'
+  resources :stories
   #via a get request
 
   

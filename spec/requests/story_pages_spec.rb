@@ -29,10 +29,11 @@ describe "Story pages:" do
 		context "should have the right flash messages" do
 
 			before do
+				visit '/stories/new'
 				click_button('Start my story')
 			end
 
-			it {should have_content("Title can't be blank")} 
+			#it {should have_content("Title can't be blank")} 
 
 			before do
 				visit '/stories/new'
@@ -45,4 +46,39 @@ describe "Story pages:" do
 		end
 
 	end
+
+	describe "other users' story pages" do
+		before do
+			facebook_login_setup
+			sign_in(@user)
+			create_users
+			
+			user = User.find(2)
+			create_stories(user)
+			@stories2 = user.story.load
+			visit user_path(2)
+		end
+
+		it {should have_content('Stories')}
+		it {should have_link('Contribute')}
+
+		it "should list all the user's stories" do
+
+			@stories2.each do |story|
+				expect(page).to have_content(story.title)
+			end
+		end
+
+		context " - the actual pages should have the right content:" do
+
+			before do
+				@story = @stories2.first
+				visit story_path(@story)
+			end
+
+			it {should have_content(@story.title)}
+		end
+
+	end
+
 end

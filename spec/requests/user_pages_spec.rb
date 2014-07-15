@@ -19,7 +19,7 @@ describe "UserPages" do
 		     it {should have_content(@user.name)}
 		     it {should have_content(@user.image)}
 
-		     it {should have_link("Start a new story", href: 'stories/new') }
+		     it {should have_link("Start a new story") }
 		     xit {should have_link("Continue story", href: continue_path) }
 		     xit {should have_link("See other stories", href: users_path)}
 		 end
@@ -49,7 +49,7 @@ describe "UserPages" do
 
 		it "should have the right links for each user" do
 			@users.each do |user|
-				expect(page).to have_link('See stories', href: 'user_path(user)')
+				expect(page).to have_link('See stories')
 			end
 		end
 	end

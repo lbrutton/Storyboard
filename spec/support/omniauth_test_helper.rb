@@ -76,3 +76,14 @@ def create_users
           @users = [@user1, @user2, @user3]
           @users
   end
+
+    def create_stories(user)
+      i = 0
+      4.times do 
+      user.story.build(title:"#{i} is a motherfucker baby, you don't know what he be blabbing about!").save
+      i = i+1
+    end
+
+
+end
+
