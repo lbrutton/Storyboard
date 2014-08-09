@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715194859) do
+ActiveRecord::Schema.define(version: 20140809233636) do
 
   create_table "sentences", force: true do |t|
     t.string   "content"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140715194859) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "story_id"
+    t.boolean  "validated"
   end
 
   create_table "stories", force: true do |t|

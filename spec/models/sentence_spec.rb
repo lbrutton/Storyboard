@@ -6,4 +6,5 @@ describe Sentence do
   it {should respond_to(:user)}
   it {should respond_to(:story)}
   it {should respond_to(:story_id)}
+  it {should respond_to(:validated)}
 end
