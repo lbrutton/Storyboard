@@ -8,6 +8,7 @@ gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'faker'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

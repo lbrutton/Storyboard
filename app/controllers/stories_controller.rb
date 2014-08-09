@@ -21,6 +21,7 @@ class StoriesController < ApplicationController
 		@sentence = Sentence.new
 	end
 
+
 	# def index
 	# 	@user = User.find_by(params[:id])
 	# 	@stories = @user.story.all

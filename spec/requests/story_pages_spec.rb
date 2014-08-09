@@ -6,10 +6,13 @@ describe "Story pages:" do
 
 	subject {page}
 
+	before do
+		facebook_login_setup
+		sign_in(@user)
+	end
+
 	describe "New story page" do
 		before do
-			facebook_login_setup
-			sign_in(@user)
 			visit 'stories/new'
 		end
 
@@ -49,10 +52,7 @@ describe "Story pages:" do
 
 	describe "other users' story pages" do
 		before do
-			facebook_login_setup
-			sign_in(@user)
 			create_users
-			
 			user = User.find(2)
 			create_stories(user)
 			@stories2 = user.story.load
@@ -87,8 +87,6 @@ describe "Story pages:" do
 	describe "the page with all the users' stories" do
 
 		before do
-			facebook_login_setup
-			sign_in(@user)
 			create_users
 			visit users_path
 		end
@@ -97,7 +95,29 @@ describe "Story pages:" do
 
 	end
 
+	describe " the user's story page" do
 
+		let(:story){@user.story.first}
+
+		before do
+			create_stories(@user)
+			visit user_path(@user)
+		end
+
+		it {should have_content(story.title)}
+
+		describe "the 'continue story' page" do
+
+			before do
+				click_link("Continue story", :match => :first)
+			end
+
+			it {should have_content("What's next?")}
+			it {should_not have_content("Get creative here")}
+
+		end
+
+	end
 
 
 
