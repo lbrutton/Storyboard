@@ -74,11 +74,31 @@ describe "Story pages:" do
 			before do
 				@story = @stories2.first
 				visit story_path(@story)
+				create_sentences(@story, @user)
 			end
 
 			it {should have_content(@story.title)}
+			it {should have_content('Get creative here')}
+			it {should have_content(@user.image)}
 		end
 
 	end
+
+	describe "the page with all the users' stories" do
+
+		before do
+			facebook_login_setup
+			sign_in(@user)
+			create_users
+			visit users_path
+		end
+
+		it {should_not have_content(@user.name)}
+
+	end
+
+
+
+
 
 end

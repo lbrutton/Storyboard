@@ -1,3 +1,22 @@
 <h1>
 	<%= @story.title %>
+	<% @sentences = @story.sentences %>
 </h1>
+<% if @sentences.any? %>
+<ul>
+	<% @sentences.each do |sentence| %>
+	<div> </div>
+	<div class="profile">
+		<li> <%= image_tag(User.find_by(id: sentence.user_id).image) %>           <%= sentence.content %>
+		</li>
+	</div>
+	<% end %>
+</ul>	
+<% end %>
+<%= form_for(@sentence) do |f| %>
+<%= f.label :content, 'Get creative here' %>
+<%= f.text_field :content %>
+<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+
+<% end %>
+

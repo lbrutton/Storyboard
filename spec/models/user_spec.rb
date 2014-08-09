@@ -10,6 +10,7 @@ describe User do
 	it { should respond_to(:provider)}
 	it { should respond_to(:uid) }
 	it { should respond_to(:image) }
+	it { should respond_to(:sentence)}
 	it { should be_valid }
 
 

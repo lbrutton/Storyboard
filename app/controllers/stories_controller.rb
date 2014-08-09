@@ -17,6 +17,8 @@ class StoriesController < ApplicationController
 
 	def show
 		@story = Story.find_by(id: params[:id])
+		session[:story_id] = @story.id
+		@sentence = Sentence.new
 	end
 
 	# def index

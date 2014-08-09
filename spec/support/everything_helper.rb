@@ -34,7 +34,8 @@ def create_users
           uid: '123545',
           info: {
             name: "Mother Fucker",
-            email:      "test@example.com"
+            email:      "test@example.com",
+            image: "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/t1.0-1/c8.0.50.50/p50x50/1912044_10203141837286751_969962963_n.jpg"
           },
           credentials: {
             token: "123456",
@@ -48,7 +49,7 @@ def create_users
           provider: 'facebook',
           uid: '123546',
           info: {
-            name: "Mother Fucker2",
+            name: "Mr Biggles",
             email:      "test2@example.com"
           },
           credentials: {
@@ -63,7 +64,7 @@ def create_users
           provider: 'facebook',
           uid: '123547',
           info: {
-            name: "Mother Fucker3",
+            name: "Badman from the bronx",
             email:      "test3@example.com"
           },
           credentials: {
@@ -82,6 +83,14 @@ def create_users
       4.times do 
       user.story.build(title:"#{i} is a motherfucker baby, you don't know what he be blabbing about!").save
       i = i+1
+    end
+
+    def create_sentences(story, user)
+      i = 0
+      4.times do
+        Sentence.new(content:"#{i}something, something, dark siiiiide", user_id: user.id, story_id:story.id).save
+        i = i + 1
+      end
     end
 
 

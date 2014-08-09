@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  helper_method :current_story
 
 
 
@@ -11,6 +12,12 @@ class ApplicationController < ActionController::Base
 
   def current_user
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_story
+  	if session[:story_id]
+  	@current_story = Story.find(session[:story_id])
+  	end
   end
 
 end

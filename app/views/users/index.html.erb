@@ -1,4 +1,5 @@
-<% @users.each do |user| %>
+<% @users_no_current = (@users - [current_user]) %>
+<% @users_no_current.each do |user| %>
 <h1> <%= user.name %> </h1>
 <span>
   <%= link_to "See stories", user_path(user) %>

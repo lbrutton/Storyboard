@@ -1,4 +1,6 @@
 Storyboard::Application.routes.draw do
+  get "sentences/create"
+  get "sentences_controller/new"
   match "auth/facebook/callback", to:"sessions#create", via: 'get'
   match "/signout", to:"sessions#destroy", via: 'get'
   match '/signup', to: 'users#new', via: 'get'
@@ -10,6 +12,9 @@ Storyboard::Application.routes.draw do
   match '/stories', to: 'stories#create', via: 'post'
   match '/storyindex', to: 'users#storyindex', via: 'get'
   resources :stories
+  resources :sentences
+
+
   #via a get request
 
   
