@@ -1,5 +1,4 @@
 class AddValidatedToSentences < ActiveRecord::Migration
   def change
-  	add_column :sentences, :validated, :boolean, default: false
-  end
+  	add_column :sentences, :validated, :boolean
 end
