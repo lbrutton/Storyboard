@@ -69,6 +69,10 @@ describe "Story pages:" do
 			end
 		end
 
+		it "should not show unvalidated sentences" do
+			#need a test to make sure we can't see other users' unvalidated sentences
+		end
+
 		context " - the actual pages should have the right content:" do
 
 			before do
@@ -116,6 +120,11 @@ describe "Story pages:" do
 			it {should_not have_content("Get creative here")}
 
 		end
+
+		it "should show the user's unvalidated stories" do
+			#need a test to check we see stories that haven't yet been validated from the user's page
+		end
+
 
 	end
 

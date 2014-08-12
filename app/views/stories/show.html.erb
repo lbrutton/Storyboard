@@ -21,7 +21,7 @@
 	<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
 	<% end %>
 <% else %>
-<% new_sentences = @story.sentences.where("validated = 'false'") %>
+<% new_sentences = @story.sentences.where("validated = ?", 'false') %>
 <h1> What's next? </h1>
 <% new_sentences.each do |sentence| %>
 <ul>
